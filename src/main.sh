@@ -215,6 +215,8 @@ function main {
       exit 1
       ;;
   esac
+  # Clean terragrunt cache
+  find ${GITHUB_WORKSPACE}/${tfWorkingDir} -type d -name ".terragrunt-cache" -exec rm -rf {} +
 }
 
 main "${*}"
